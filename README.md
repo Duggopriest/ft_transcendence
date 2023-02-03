@@ -1,5 +1,9 @@
 # ft_transcendence
 
+WorkFlow:
+Create Branch -> work -> Test -> Make a merge request
+name the branch acording to the task
+
 Task:
   your website, users will play Pong with others. You will provide a nice user interface, a chat, and real-time multiplayer online games!
   
@@ -51,10 +55,14 @@ Pong:
       sync ball and paddles -
            
 
-Areas of experince:
-  postgres - 
-  prisma -
-  js - 
-  nest js -
-  angular - 
-  material ui -
+Areas of interest:
+  CI/CD - Jaymie
+  Auth - Alex B
+  game - Jordan B / Jaymie G
+  postgres - Alex B
+  prisma - Alex B / Jordan B
+  Docker - Jaymie
+  irc - Jordan B
+  nest js - Alex B / Jaymie G
+  angular - Lachlan R
+  material ui - Lachlan R
