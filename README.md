@@ -19,11 +19,11 @@ Chat Rooms:
   IRC:
     pick an irc service -
     Commands:
-      CHANNEL - ,
-      JOIN - ,
-      LEAVE - ,
-      KICK - ,
-      MSG - ,
+      CHANNEL -
+      JOIN -
+      LEAVE -
+      KICK -
+      MSG -
     Networking:
       connecting to the database -
       connecting to a game? -
