@@ -15,8 +15,11 @@ Chat Rooms:
   IRC:
     pick an irc service -
     Commands:
-      
-    
+      CHANNEL - 
+      JOIN -
+      LEAVE -
+      KICK -
+      MSG -
     Networking:
       connecting to the database -
       connecting to a game? -
@@ -46,7 +49,12 @@ Pong:
     Sockets:
       Build connecting Sockets -
       sync ball and paddles -
-      
-      
-  
-    
+           
+
+Areas of experince:
+  postgres - 
+  prisma -
+  js - 
+  nest js -
+  angular - 
+  material ui -
