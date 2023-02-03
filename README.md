@@ -15,7 +15,7 @@ Chat Rooms:
   IRC:
     pick an irc service -
     Commands:
-      ...
+      
     
     Networking:
       connecting to the database -
