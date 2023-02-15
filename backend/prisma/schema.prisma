@@ -1,0 +1,84 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Unlike TypeORM where entities are created and set inside the modules, 
+// Prisma handles everything from this file where the models are set
+
+
+generator client {
+	provider = "prisma-client-js"
+	// output   = "../node_modules/@prisma/client" 
+
+}
+
+datasource db {
+	provider = "postgresql"
+	url      = env("DATABASE_URL")
+}
+
+model User {
+	id			Int			@id @default(autoincrement())
+	email String
+  id42    Int
+
+	createdAt	DateTime	@default(now())
+	updatedAt	DateTime	@updatedAt
+
+	username	String?		@unique
+	avatar		String?
+
+	twoFA			Boolean?	@default(false)
+	twoFAsecret		String?
+
+	friends		Int[]
+	adding		Int[]	
+	added		Int[]		
+
+	blocks		Int[]
+	blocking	Int[]
+	blocked		Int[]
+
+  owner       Channel[] @relation("owner")
+  admin       Channel[] @relation("admin")
+  member      Channel[] @relation("member")
+  chanBlocked Channel[] @relation("blocked")
+
+
+
+	@@unique([id, email])
+	@@map("users")    //mapped to another name
+}
+
+model Channel {
+  id          Int       @id  @default(autoincrement())
+  name        String    @default(uuid())
+  createdAt   DateTime  @default(now())
+
+  dm          Boolean   @default(false)
+  private     Boolean   @default(false)
+  isPassword  Boolean   @default(false)
+  password    String?
+
+  owners      User[]      @relation("owner")
+  admins      User[]      @relation("admin")
+  members     User[]      @relation("member")
+  blocked     User[]      @relation("blocked")
+
+
+
+	@@unique([id])
+}
+
+
+model Game {
+	id	Int			@id @unique
+
+	player1	Int
+	player2 Int?
+	score1	Int?
+	score2	Int?
+
+	startTime	DateTime?
+	endTime		DateTime?
+
+}
