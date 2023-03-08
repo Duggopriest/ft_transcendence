@@ -44,6 +44,7 @@ export class AuthService {
 		@Res() response: Response,
 		id: number,
 		email: string,
+		is2Fa: boolean,
 	): Promise<Response> {
 		// generate tokens
 		const tokens = await this.signin_jwt(id, email);
@@ -51,7 +52,11 @@ export class AuthService {
 		const url = new URL(process.env.SITE_URL);
 		url.port = process.env.FRONT_PORT;
 		url.pathname = '/auth';
-		url.searchParams.append('access_token', tokens['access_token']);
+		if (is2Fa) {
+			url.searchParams.append('2fa', 'true');
+		} else {
+			url.searchParams.append('access_token', tokens['access_token']);
+		}
 		// send response to frontend
 		response.status(302).redirect(url.href);
 		return response;

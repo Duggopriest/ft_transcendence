@@ -25,6 +25,7 @@ import { FOURTYTWOAuthGuard } from './guard';
 /* AUTH DTOs */
 import { ApiHeader, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { RedirectOnLogin } from './filter';
+import {totp} from "otplib";
 
 // AUTH CONTROLLER - /auth
 @ApiTags('authentication')
@@ -81,8 +82,8 @@ export class AuthController {
 		const { username, twoFA, id, email } = user;
 		// LOG
 		this.logger.log('42 API signin ' + username);
-		return this.authService.signin_42_token(response, id, email);
-		//TODO impl 2fa
+
+		return this.authService.signin_42_token(response, id, email, twoFA);
 	}
 
 	/**
